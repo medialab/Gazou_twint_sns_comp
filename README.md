@@ -33,6 +33,35 @@ Il y a un problème de filtrage sur la langue qui nécessite une modification da
 Une fois le changement effectué, depuis le répertoire cloné de git, lancer la commande suivante :
 > pip install .
 
+```python
+import argparse
+import twint
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--kw',nargs="+", help="size a list of key_words")
+parser.add_argument('--since', type=str, help="starting date YYYY-MM-DD HH:MM:SS", default="2020-11-19 20:30:00")
+parser.add_argument('--until', type=str, help="ending date YYYY-MM-DD HH:MM:SS", default="2020-11-20 10:30:00")
+args = parser.parse_args()
+
+for keyword in args.kw :
+    config = twint.Config()
+    config.Search = keyword
+    config.Lang = "fr"
+    config.Since = args.since
+    config.Until = args.until
+    config.Store_csv = True
+    config.Output = f"{keyword.strip()}.csv"
+    twint.run.Search(config)
+```
+
+Les différents fichiers de recolte furent fusionnés à l'aide d'un script bash
+
+## Installation de Snscrape
+
+pip3 install git+https://github.com/JustAnotherArchivist/snscrape.git
+
+Les différents fichiers de recolte furent fusionnés à l'aide d'un script bash
+
 ## Regularisation des données
 
 Afin de pouvoir comparer les données, les données récoltés ont du être régularisées. Les dates furent toutes converties au format isoformat afin de faciliter leurs manipulations, comparaisons avec le module datetime. Les dates furent également réajustés pour Gazouilloire car pas au meme fuseau horaire que les deux scrapeurs. Dans le but d'obtenir le maximum de champ possible, la récolte des tweets avec Snscrape ne put s'enregister qu'au format json. Il 

@@ -75,7 +75,7 @@ Les tweets furent d'abord agglomérées à la journée à laquelle ils furent pu
 
 ### Twint-Snscrape
 
-![img](SnsTwint/TwintSnsFtweetsday.png)
+![img](SnsTwint/TwintsnsFtweetsday.png)
 
 ![img](SnsTwint/TwintSnsFtweetshour.png)
 

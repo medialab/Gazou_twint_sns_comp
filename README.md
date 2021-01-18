@@ -47,7 +47,7 @@ Les tweets furent d'abord agglomérées à la journée à laquelle ils furent pu
 
 ![img](Gazoutwint/GazouTwintFtweetsday.png)
 
-![img](Gazoutwint/GazouTwintFtweetshour.png)
+![img](Gazoutwint/GazouTwinttweetshour.png)
 
 ![img](Gazoutwint/GazouTwintFtweets0809.png)
 
@@ -75,9 +75,9 @@ Les tweets furent d'abord agglomérées à la journée à laquelle ils furent pu
 
 ### Twint-Snscrape
 
-![img](SnsTwint/TwintSnsFday.png)
+![img](SnsTwint/TwintSnsFtweetsday.png)
 
-![img](SnsTwint/TwintSnsFhour.png)
+![img](SnsTwint/TwintSnsFtweetshour.png)
 
 ![img](SnsTwint/TwintSnsF0809.png)
 
@@ -123,6 +123,7 @@ La fréquence du mot clef Holdup_ledoc fut trop minime dans chaque récolte (voi
  ![img](compar.png)
  
 
+Le seuil de significativité du test est ici choisi à 5%. 
  
  #### Gazouilloire - Complémentaire de Gazouilloire
  
@@ -164,7 +165,7 @@ La fréquence du mot clef Holdup_ledoc fut trop minime dans chaque récolte (voi
 Ainsi, il semblerait que les proportions des tweets contenant les mots-clefs 'Holdup' et 'Hold-up' sont bien différentes entre les tweets captés 
 par Gazouilloire uniquement et le reste des tweets. Il pourrait être intéressant d'analyser cette divergence plus en détails. 
 
-## Conclusion
+## Conclusion
 
 Cette courte étude semble montrer que Gazouilloire récupère environ 4 fois plus de tweets que les scrapeurs Snscrape et Twint. Cependant une petite partie
 des tweets ne semblent être que captés par les scrapeurs. La petite analyse qualitative sur les proportions de tweets contenant les différents mots-clefs semblent

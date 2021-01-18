@@ -16,8 +16,19 @@ with open('recolte_sns.csv') as f1, open('recolte_sns2.csv','w') as f2:
         row[date] = row[date][:-6]
         enricher.writerow(row)
 
-'''
-with open("collecte2_GAZOU.csv") as f1, open("clean_collecte2_gazou.csv",'w') as f2:
+with open('twint2.csv') as f1, open('clean_twint2.csv','w') as f2:
+    enricher = casanova.enricher(f1,f2)
+    for row in enricher:
+        #row[2] -> created_at
+        newcrt = Rconvert_datetime(row[2]) - datetime.timedelta(hours=1)
+        row[2] = newcrt.isoformat()
+        #row[3] -> date
+        row[3] = newcrt.date()
+        #row[4] -> time
+        row[4] = newcrt.time()
+        enricher.writerow(row)
+
+with open("holdup_gazou.csv") as f1, open("clean_holdup_gazou.csv",'w') as f2:
     file_content1_reader = csv.reader(f1)
     file2_writer = csv.writer(f2)
     while True:
@@ -28,4 +39,4 @@ with open("collecte2_GAZOU.csv") as f1, open("clean_collecte2_gazou.csv",'w') as
             print("Error")
         except StopIteration:
             print("Iteration End")
-            break'''
+            break

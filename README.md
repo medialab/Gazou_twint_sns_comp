@@ -118,13 +118,18 @@ Les tweets furent d'abord agglomérées à la journée à laquelle ils furent pu
 
 
 On notera que les deux scrapeurs suivent des tendances extremement similaires et que cette tendance commune est similaire à la tendance suivie par Gazouilloire à une échelle réduite. En moyenne, l'on constate effectivement que Gazouilloire récupère quatre fois plus de tweets que Twint ou Snscrape. 
+<br/>
 
+Cependant si l'on supprime les tweets labellisés comme étant des retweets dans la collecte de Gazouilloire, on retombe sur les mêmes ordres de grandeurs que pour les deux scrapeurs. On constate même qu'il semble que les deux scrapeurs soient sensiblement plus efficace que Gazouilloire. 
+
+![img](Gazousns/gaz_snscrapeday.png)
+![img](Gazoutwint/gaz_twintday.png)
 <br/>
 <br/>
 
 ![img](diag_venn.png)
 
-Cependant si l'on représente le diagramme de Venn de la jointure des 3 fichiers de récolte sur les ids des tweets, l'on constate qu'un peu plus de 3% des tweets passent sous le radar de Gazouilloire. 
+Si l'on représente maintenant le diagramme de Venn de la jointure des 3 fichiers de récolte (Rts supprimés) sur les ids des tweets, l'on constate qu'un peu plus de 12% des tweets passent sous le radar de Gazouilloire. 
 Une première hypothèse fut qu . Rien en ce sens.
 Une comparaison des fréquences pour les différents mots-clefs par jours fut entreprise et exposée ci-dessous. 
 
@@ -133,16 +138,11 @@ Une comparaison des fréquences pour les différents mots-clefs par jours fut en
 
 Dans un premier temps, puisque le volume de tweets non captés par Gazouilloire ne fut pas trop important, la cohérence des tweets fut vérifiée (présence des mots-clefs,
 tweet en française, cohérence des dates.). La recherche d'un 'motif' particulier dans ces tweets fut également entreprise mais sans succès. 
-A defaut, une analyse de la fréquence d'apparition des mots-clefs dans les tweets fut entreprise et exposée ci-dessous afin de faire ressortir éventuellement
-certaines tendances. 
+A defaut, une analyse de la fréquence d'apparition des mots-clefs dans les tweets fut entreprise et exposée ci-dessous afin de faire ressortir éventuellement certaines tendances. 
 
-### 2.1 Frequence globale des mots-clefs 
-
-![img](freq_mtclef2.png)
+### 2.1 Comparaison des fréquences d'apparaitions 
 
 La fréquence du mot clef Holdup_ledoc fut trop minime dans chaque récolte (voir = 0) pour être utile dans ces comparaisons. 
-
- ### 2.2 Comparaison des fréquences journalières. 
  
  On partitionne ici l'ensemble des tweets récoltés en deux.
  Pour chaque mots-clefs dans chaque partition, on regarde pour chaque tweet si il contient ou non le mot-clef testé. 
@@ -153,52 +153,22 @@ La fréquence du mot clef Holdup_ledoc fut trop minime dans chaque récolte (voi
  
 
 Le seuil de significativité du test est ici choisi à 5%. 
- 
- #### Gazouilloire - Complémentaire de Gazouilloire
- 
-|   DATE        |      Mot-clef | Test - Egalité des proportions   |
-| ------------- |:-------------:| -----:|
-| 2020-11-08     | HoldUpStopLaPeur | Oui |
-| 2020-11-09     | HoldUpStopLaPeur |  Oui |
-| 2020-11-10  | HoldUpStopLaPeur   |   Non |
-| 2020-11-11 | HoldUpStopLaPeur   |    Non |
-| 2020-11-12  | HoldUpStopLaPeur   |    Oui |
-| 2020-11-13 | HoldUpStopLaPeur   |    Non|
-| 2020-11-14 | HoldUpStopLaPeur   |    Oui |
-| 2020-11-15 | HoldUpStopLaPeur   |    Oui |
-| 2020-11-08  | Holdup   |    Oui |
-| 2020-11-09  | Holdup   |    Non |
-| 2020-11-10  | Holdup   |    Non |
-| 2020-11-11  | Holdup   |    Non |
-| 2020-11-12  | Holdup   |    Non |
-| 2020-11-13  | Holdup   |    Non |
-| 2020-11-14  | Holdup   |    Non |
-| 2020-11-15  | Holdup   |    Non |
-| 2020-11-08  | Hold-up  |    Non |
-| 2020-11-09  | Hold-up  |    Oui |
-| 2020-11-10  | Hold-up  |    Non |
-| 2020-11-11  | Hold-up  |    Non |
-| 2020-11-12  | Hold-up  |    Non |
-| 2020-11-13  | Hold-up  |    Non |
-| 2020-11-14  | Hold-up  |    Non |
-| 2020-11-15  | Hold-up  |    Oui |
-| 2020-11-08 | Hold_Up  |    Oui |
-| 2020-11-09 | Hold_Up  |    Oui |
-| 2020-11-10  | Hold_Up  |    Oui |
-| 2020-11-11 | Hold_Up  |    Oui |
-| 2020-11-12  | Hold_Up  |    Oui |
-| 2020-11-13  | Hold_Up  |    Non |
-| 2020-11-14  | Hold_Up  |    Non |
-| 2020-11-15  | Hold_Up  |    Non |
 
-Ainsi, il semblerait que les proportions des tweets contenant les mots-clefs 'Holdup' et 'Hold-up' sont bien différentes entre les tweets captés 
-par Gazouilloire uniquement et le reste des tweets. Il pourrait être intéressant d'analyser cette divergence plus en détails. 
+On réalise ce test pour chaque mot-clef pour chaque jour de la récolte. 
+
+Les résultats sont listés dans le tableau ci-dessous
+ 
+|   Comparaison     |    Hold_Up | HoldUpStopLaPeur  | Hold-up| Holdup |
+| ------------- |:-------------:| -----:|-----:|-----:|-----:|
+|Twint/Gazouilloire| 5/8 | 3/8 | 3/8 | 2/8 |
+|Twint/snscrape | 8/8 | 5/8 | 6/8 | 8/8 |
+|Sns/Gazouilloire| 6/8 | 5/8 | 5/8| 4/8 | 
+
+Cette analyse, bien que sommaire, semble montrer que les proportions des tweets captés par les différents scrapeurs sont relativement homogènes en termes de fréquence d'apparition de mots-clefs comparés à Gazouilloire avec les deux scrapeurs (En particulier sur le mot-clef Holdup)
+Il pourrait être intéressant d'analyser cette divergence plus en détails. 
 
 ## Conclusion
 
-Cette courte étude semble montrer que Gazouilloire récupère environ 4 fois plus de tweets que les scrapeurs Snscrape et Twint. Cependant une petite partie
-des tweets ne semblent être que captés par les scrapeurs. La petite analyse qualitative sur les proportions de tweets contenant les différents mots-clefs semblent
-montrer qu'il y a une différence importante sur les mots-clefs 'Holdup' et 'Hold-up'. Hypothèse des 3200 tweets ? (saturation ?) 
-L'ensemble des ids des tweets ici utilisés sont disponibles dans le fichier '.csv' (avec l'outil avec lequel le tweet a été récupéré)
-
+L'avantage principale de Gazouilloire par rapport aux scrapeurs Twint et Snscrape est sa capacité à récupérer les retweets. Cependant, il semblerait que 
+les scrapeurs récupèrent sensiblement plus de tweets 'primaires' que Gazouilloire. 
 

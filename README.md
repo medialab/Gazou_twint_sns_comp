@@ -16,9 +16,7 @@ La comparaison des récoltes fut effectuée sur la période suivante : 08/11/202
  - [Sns-Gazouilloire](#1.2-Sns-Gazouilloire)
  - [Twint-Sns](#1.3-Twint-Sns)
 - [Analyse qualitative](#2-Qualitatif)
-  -[Mots-clefs](#2.1-Mots-clefs)
-    -[Frequence globale des mots-clefs](#2.1.1-Frequence-globale)
-    -[Comparaison des fréquences journalières](#2.1.2-Frequences-journalieres)
+  -[Comparaison des fréquences d'apparitions](#2.1-Comparaison des fréquences d'apparitions)
 
 
 ## Installation/Configuration de Twint 
@@ -140,7 +138,7 @@ Dans un premier temps, puisque le volume de tweets non captés par Gazouilloire 
 tweet en française, cohérence des dates.). La recherche d'un 'motif' particulier dans ces tweets fut également entreprise mais sans succès. 
 A defaut, une analyse de la fréquence d'apparition des mots-clefs dans les tweets fut entreprise et exposée ci-dessous afin de faire ressortir éventuellement certaines tendances. 
 
-### 2.1 Comparaison des fréquences d'apparaitions 
+### 2.1 Comparaison des fréquences d'apparitions 
 
 La fréquence du mot clef Holdup_ledoc fut trop minime dans chaque récolte (voir = 0) pour être utile dans ces comparaisons. 
  

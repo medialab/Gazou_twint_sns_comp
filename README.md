@@ -159,7 +159,7 @@ On réalise ce test pour chaque mot-clef pour chaque jour de la récolte.
 Les résultats sont listés dans le tableau ci-dessous
  
 |   Comparaison     |    Hold_Up | HoldUpStopLaPeur  | Hold-up| Holdup |
-| ------------- |:-------------:| -----:|-----:|-----:|-----:|
+| ------------- |:-------------:|: -----:|:-----:|:-----:|:-----:|
 |Twint/Gazouilloire| 5/8 | 3/8 | 3/8 | 2/8 |
 |Twint/snscrape | 8/8 | 5/8 | 6/8 | 8/8 |
 |Sns/Gazouilloire| 6/8 | 5/8 | 5/8| 4/8 | 

@@ -21,8 +21,8 @@ with open(args.Gazfile) as f1, open('filtered_gazouilloire.csv','w') as f2:
     for row in enri:
         if row[threadon] == '1':
            continue
-        if row[rt]:
-            continue
+        #if row[rt]:
+            #continue
         date_r = datetime.fromisoformat(row[date])
         if date_r >= date1 and date_r <= date2:
             enri.writerow(row)
@@ -31,7 +31,6 @@ with open(args.Gazfile) as f1, open('filtered_gazouilloire.csv','w') as f2:
 #dealing with SnscrapeFile
 
 #fixing time
-
 with open(args.Snsfile) as f1, open('filtered_sns.csv','w') as f2:
     enricher = casanova.enricher(f1,f2)
     date = enricher.pos.created_at
@@ -59,3 +58,4 @@ with open(args.Twintfile) as f1, open('filtered_twint.csv','w') as f2:
         row[3] = newcrt.date()
         #row[4] -> time
         row[4] = newcrt.time()
+
